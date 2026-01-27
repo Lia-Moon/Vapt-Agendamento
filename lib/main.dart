@@ -1,8 +1,9 @@
+import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:vapt_agendamento/modules/home/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
