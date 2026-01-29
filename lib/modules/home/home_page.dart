@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
       
-      drawer: const MenuDrawer(),
+      endDrawer: const MenuDrawer(),
 
       // page body
       body: SafeArea(
