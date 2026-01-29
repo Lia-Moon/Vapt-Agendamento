@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vapt_agendamento/modules/reminder/add_reminder.dart';
 import '../../shared/widgets/menu_drawer.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
       // 1. Cor de fundo do topo (azul acinzentado)
       backgroundColor: const Color(0xFF90B9BF),
       
-      drawer: const MenuDrawer(),
+      endDrawer: const MenuDrawer(),
 
       // 3. O corpo da tela
       body: SafeArea(
@@ -37,7 +38,7 @@ class HomePage extends StatelessWidget {
                     builder: (context) => IconButton(
                       icon:
                           const Icon(Icons.menu, color: Colors.white, size: 30),
-                      onPressed: () => Scaffold.of(context).openDrawer(),
+                      onPressed: () => Scaffold.of(context).openEndDrawer(),
                     ),
                   ),
                 ],
@@ -82,8 +83,13 @@ class HomePage extends StatelessWidget {
       // 5. Botão Flutuante (FAB)
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Ação para adicionar lembrete
-        },
+          Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (context) => const AddReminder(),
+            ),
+          ); 
+        }, 
         backgroundColor: const Color(0xFF90B9BF),
         child: const Icon(Icons.add, color: Colors.white, size: 30),
       ),
