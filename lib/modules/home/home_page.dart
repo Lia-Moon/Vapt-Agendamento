@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vapt_agendamento/main.dart';
 import '../../shared/widgets/menu_drawer.dart';
 
 class HomePage extends StatelessWidget {
@@ -78,6 +79,26 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+
+      // floatingActionButton: Row(
+      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //   children: [
+      //     FloatingActionButton(
+      //       onPressed: () {
+      //         // Ação para adicionar lembrete
+      //       },
+      //       backgroundColor: const Color(0xFF90B9BF),
+      //       child: const Icon(Icons.add, color: Colors.white, size: 30),
+      //     ),
+      //     FloatingActionButton(
+      //       onPressed: () {
+      //         selectedTheme.value = 'pink';
+      //       },
+      //       backgroundColor: const Color.fromARGB(15, 255, 2, 213),
+      //       child: const Icon(Icons.add, color: Colors.white, size: 30),
+      //     ),
+      //   ],
+      // )
 
       // 5. Botão Flutuante (FAB)
       floatingActionButton: FloatingActionButton(
