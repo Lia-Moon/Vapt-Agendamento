@@ -20,14 +20,20 @@ class MenuDrawer extends StatelessWidget {
             title: Text('Início'),
             textColor: Theme.of(context).colorScheme.onSurfaceVariant,
             iconColor: Theme.of(context).colorScheme.onSurfaceVariant,
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/');
+            }
           ),
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Configurações'),
             textColor: Theme.of(context).colorScheme.onSurfaceVariant,
             iconColor: Theme.of(context).colorScheme.onSurfaceVariant,
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/settings');
+            }
           ),
         ],
       ),
