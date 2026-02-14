@@ -8,8 +8,7 @@ class AppColors {
   // static const secondaryBlue = Color(0xFFF0F0F0);
 
   // --- theme purple ---
-  static const primaryPurple = Color(0xFF6200EE);
-  static const secondaryPurple = Color(0xFF03DAC6);
+  static const primaryPurple = Color.fromARGB(255, 145, 74, 244);
 
   // --- theme pink ---
   static const primaryPink = Color(0xFFE91E63);
@@ -34,10 +33,11 @@ class AppColors {
       );
     }
 
-    // Default (Purple)
+    // Default (Blue)
     return ColorScheme.fromSeed(
       seedColor: primaryBlue,
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
+      primary: primaryBlue, // force the exact color
     );
   }
 }

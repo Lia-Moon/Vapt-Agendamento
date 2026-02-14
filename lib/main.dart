@@ -29,7 +29,7 @@ void main() {
   runApp(const MyApp());
 }
 
-final ValueNotifier<String> selectedTheme = ValueNotifier('purple');
+final ValueNotifier<String> selectedTheme = ValueNotifier('');
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -43,24 +43,24 @@ class MyApp extends StatelessWidget {
       builder: (context, currentTheme, child) {
         return MaterialApp(
           title: 'Vapt App',
-          debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: false, // remove 'Debug' text
           
-          // search the color scheme dynamaically
+          // search the color scheme dynamically
           theme: ThemeData(
             colorScheme: AppColors.getColorScheme(false, currentTheme),
             useMaterial3: true,
           ),
           
-          // also set the darktheme
+          // also sets the darktheme
           darkTheme: ThemeData(
             colorScheme: AppColors.getColorScheme(true, currentTheme),
             useMaterial3: true,
           ),
 
           // configuration from user system (light/dark)
-          themeMode: ThemeMode.system, 
+          themeMode: ThemeMode.system,
           
-          home: const HomePage(),
+          home: const HomePage(), // defines which page opens first
         );
       },
     );

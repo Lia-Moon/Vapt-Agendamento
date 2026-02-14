@@ -15,7 +15,6 @@ TextTheme _buildDefaultTextTheme(TextTheme base) {
   return base.copyWith(
 
     // Adding a ? before each .copyWith( call ensures that if the property is null, it simply doesn't try to copy it.
-
     headlineMedium: base.headlineMedium?.copyWith(
       fontFamily: 'Cardo',
       fontWeight: FontWeight.w500,
