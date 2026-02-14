@@ -1,9 +1,17 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:vapt_agendamento/core/app_colors.dart';
+import 'package:vapt_agendamento/core/theme_provider.dart';
 import 'package:vapt_agendamento/modules/home/home_page.dart';
+import 'package:vapt_agendamento/modules/settings/settings_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,14 +19,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Vapt App',
-      debugShowCheckedModeBanner: false, // Remove a faixa de "Debug" no canto da tela
-      theme: ThemeData(
-        useMaterial3: true,
-        primaryColor: const Color(0xFF90B9BF), // Define a cor principal do app
-      ),
-      home: const HomePage(), // Aqui você define qual tela abre primeiro
+
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp(
+          title: 'Vapt App',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            useMaterial3: true,
+            colorScheme: AppColors.getColorScheme(false, themeProvider.selectedColor),
+          ),
+          darkTheme: ThemeData(
+            useMaterial3: true,
+            colorScheme: AppColors.getColorScheme(true, themeProvider.selectedColor),
+          ),
+          themeMode: ThemeMode.system,
+          initialRoute: '/',
+          routes: {
+            '/': (context) => const HomePage(),
+            '/settings': (context) => const SettingsPage(),
+          }
+        );
+      },
     );
   }
 }

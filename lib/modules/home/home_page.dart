@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../shared/widgets/menu_drawer.dart';
+import 'package:vapt_agendamento/shared/widgets/menu_drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,36 +7,35 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // 1. Cor de fundo do topo (azul acinzentado)
-      backgroundColor: const Color(0xFF90B9BF),
+      backgroundColor: Theme.of(context).colorScheme.primary,
       
       drawer: const MenuDrawer(),
 
-      // 3. O corpo da tela
+      // page body
       body: SafeArea(
         child: Column(
           children: [
-            // Cabeçalho Customizado
+            // customized header
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     'Vapt',
                     style: TextStyle(
                       fontSize: 32,
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onPrimary,
                       fontWeight: FontWeight.bold,
                       fontFamily:
-                          'Cursive', // Certifique-se de configurar a fonte no pubspec
+                          'Cursive', 
                     ),
                   ),
-                  // Botão que abre o Drawer
+                  // Button that opens Drawer
                   Builder(
                     builder: (context) => IconButton(
                       icon:
-                          const Icon(Icons.menu, color: Colors.white, size: 30),
+                          Icon(Icons.menu, color: Theme.of(context).colorScheme.onPrimary, size: 30),
                       onPressed: () => Scaffold.of(context).openDrawer(),
                     ),
                   ),
@@ -47,29 +46,30 @@ class HomePage extends StatelessWidget {
             Expanded(
               child: Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Color(0xFFF0F0F0), // Cinza muito claro
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
-                  ),
-                ),
+                decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.surfaceContainerHighest, // background that uses a very light tone from the primary color
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30),
+                              ),
+                            ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Vazio aqui',
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF90B9BF),
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     const SizedBox(height: 20),
-                    const Text(
+                    Text(
                       'Que tal adicionar seu\nprimeiro lembrete?',
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.grey, fontSize: 16),
+                      style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                      fontSize: 16),
                     ),
                   ],
                 ),
@@ -79,13 +79,13 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      // 5. Botão Flutuante (FAB)
+      // Floating button (FAB)
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Ação para adicionar lembrete
+          // Add reminder
         },
-        backgroundColor: const Color(0xFF90B9BF),
-        child: const Icon(Icons.add, color: Colors.white, size: 30),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        child: Icon(Icons.add, color: Theme.of(context).colorScheme.onPrimary, size: 30),
       ),
     );
   }
