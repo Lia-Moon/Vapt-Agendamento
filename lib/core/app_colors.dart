@@ -12,7 +12,7 @@ class AppColors {
 
   // --- theme pink ---
   static const primaryPink = Color(0xFFE91E63);
-  static const secondaryPink = Color(0xFFF48FB1);
+  // static const secondaryPink = Color(0xFFF48FB1);
 
   // generate color scheme based on selected color
   static ColorScheme getColorScheme(bool isDarkMode, String themeColor) {

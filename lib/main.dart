@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:vapt_agendamento/core/app_colors.dart';
 import 'package:vapt_agendamento/core/theme_provider.dart';
+import 'package:vapt_agendamento/core/app_theme.dart';
 import 'package:vapt_agendamento/modules/home/home_page.dart';
 
 void main() {
@@ -24,14 +24,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Vapt App',
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            useMaterial3: true,
-            colorScheme: AppColors.getColorScheme(false, themeProvider.selectedColor),
-          ),
-          darkTheme: ThemeData(
-            useMaterial3: true,
-            colorScheme: AppColors.getColorScheme(true, themeProvider.selectedColor),
-          ),
+          theme: AppTheme.createTheme(false, themeProvider.selectedColor),
+          darkTheme: AppTheme.createTheme(true, themeProvider.selectedColor),
           themeMode: ThemeMode.system,
           home: const HomePage(),
         );
