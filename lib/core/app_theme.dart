@@ -16,23 +16,48 @@ class AppTheme {
 
   static TextTheme _buildTextTheme(TextTheme base) {    
     return base.copyWith(
-      // Adding a ? before each .copyWith( call ensures that if the property is null, it simply doesn't try to copy it
-      headlineMedium: base.headlineMedium?.copyWith(
-        fontFamily: 'Cardo',
-        fontWeight: FontWeight.w500,
-      ),
-      titleLarge: base.titleLarge?.copyWith(
-        fontWeight: FontWeight.w700,
-        fontSize: 30.0,
-      ),
-      bodySmall: base.bodySmall?.copyWith(
-        fontWeight: FontWeight.w400,
-        fontSize: 14.0,
-      ),
-      bodyMedium: base.bodyMedium?.copyWith(
-        fontWeight: FontWeight.w500,
-        fontSize: 16.0,
-      ),
-    );
+    // Adding a ? before each .copyWith( call ensures that if the property is null, it simply doesn't try to copy it
+    // App_name_large (Figma) -> displayLarge
+    displayLarge: base.displayLarge?.copyWith(
+      fontFamily: 'Pacifico',
+      fontSize: 64.0,
+      height: 1.2, // "Auto" on Figma is usually ~1.2 a 1.4
+    ),
+
+    // App_name_normal (Figma) -> displayMedium
+    displayMedium: base.displayMedium?.copyWith(
+      fontFamily: 'Pacifico',
+      fontSize: 40.0,
+    ),
+
+    // Body_bold_large (Figma) -> titleLarge
+    titleLarge: base.titleLarge?.copyWith(
+      fontFamily: 'Inter',
+      fontWeight: FontWeight.w700,
+      fontSize: 24.0,
+    ),
+
+    // Body_bold_medium (Figma) -> bodyLarge
+    bodyLarge: base.bodyLarge?.copyWith(
+      fontFamily: 'Inter',
+      // fontWeight: FontWeight.w700,
+      fontSize: 20.0,
+    ),
+
+    // Body_bold_small (Figma) -> bodyMedium
+    bodyMedium: base.bodyMedium?.copyWith(
+      fontFamily: 'Inter',
+      fontWeight: FontWeight.w700,
+      fontSize: 16.0,
+    ),
+
+    // Body_black_italic_small (Figma) -> mapeado para labelSmall
+    labelSmall: base.labelSmall?.copyWith(
+      fontFamily: 'Inter',
+      // fontWeight: FontWeight.w900, // Black
+      fontStyle: FontStyle.italic,
+      fontSize: 16.0,
+    ),
+  );
   }
 }
