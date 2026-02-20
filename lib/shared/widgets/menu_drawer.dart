@@ -7,21 +7,40 @@ class MenuDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return Drawer(
+      backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(color: Color(0xFF90B9BF)),
-            child: Text('Menu Vapt', style: TextStyle(color: Colors.white, fontSize: 24)),
+            decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary),
+            child: Center(
+              child: 
+                Text('Menu', 
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  )
+              ),
+            ),
           ),
           ListTile(
             leading: Icon(Icons.home),
-            title: Text('Início'),
+            title: Text('Início',
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              )
+            ),
+            iconColor: Theme.of(context).colorScheme.onSurfaceVariant,
             onTap: () => Navigator.pop(context),
           ),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Configurações'),
+            title: Text('Configurações',
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              )
+            ),
+            iconColor: Theme.of(context).colorScheme.onSurfaceVariant,
             onTap: () {},
           ),
         ],
