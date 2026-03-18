@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vapt_agendamento/main.dart';
 import '../../shared/widgets/menu_drawer.dart';
 
 class HomePage extends StatelessWidget {
@@ -37,13 +36,14 @@ class HomePage extends StatelessWidget {
                       constraints: const BoxConstraints(),
                       icon:
                           Icon(Icons.menu, color: Theme.of(context).colorScheme.onPrimary, size: 30),
-                      onPressed: () => Scaffold.of(context).openDrawer(),
+                      onPressed: () => Scaffold.of(context).openEndDrawer(),
                     ),
                   ),
                 ],
               ),
             ),
 
+            // page content
             Expanded(
               child: Container(
                 width: double.infinity,
@@ -88,7 +88,8 @@ class HomePage extends StatelessWidget {
       // Floating button (FAB)
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Add reminder
+          Navigator.pop(context); // Ensure any open drawers are closed before navigating
+          Navigator.pushNamed(context, '/addReminder'); // Navigate to the AddReminder page
         },
         backgroundColor: Theme.of(context).colorScheme.primary,
         child: Icon(Icons.add, color: Theme.of(context).colorScheme.onPrimary, size: 30),
