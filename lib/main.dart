@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:vapt_agendamento/core/theme_provider.dart';
 import 'package:vapt_agendamento/core/app_theme.dart';
 import 'package:vapt_agendamento/modules/home/home_page.dart';
+import 'package:vapt_agendamento/modules/reminder/add_reminder.dart';
 
 void main() {
   runApp(
@@ -27,7 +28,12 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.createTheme(false, themeProvider.selectedColor),
           darkTheme: AppTheme.createTheme(true, themeProvider.selectedColor),
           themeMode: ThemeMode.system,
-          home: const HomePage(),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => const HomePage(),
+            '/home': (context) => const HomePage(),
+            '/addReminder': (context) => const AddReminder(),
+          }
         );
       },
     );

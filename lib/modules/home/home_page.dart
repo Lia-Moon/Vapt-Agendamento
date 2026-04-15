@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vapt_agendamento/main.dart';
 import '../../shared/widgets/menu_drawer.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,8 +8,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
-      
-      drawer: const MenuDrawer(),
+
+      endDrawer: const MenuDrawer(),
 
       // page body
       body: SafeArea(
@@ -26,35 +25,40 @@ class HomePage extends StatelessWidget {
                   Text(
                     'Vapt',
                     style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                      color: Theme.of(context).colorScheme.onPrimary,
-                      height: 1.0,
-                    ),
+                          color: Theme.of(context).colorScheme.onPrimary,
+                          height: 1.0,
+                        ),
                   ),
                   // Button that opens Drawer
                   Builder(
                     builder: (context) => IconButton(
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
-                      icon:
-                          Icon(Icons.menu, color: Theme.of(context).colorScheme.onPrimary, size: 30),
-                      onPressed: () => Scaffold.of(context).openDrawer(),
+                      icon: Icon(Icons.menu,
+                          color: Theme.of(context).colorScheme.onPrimary,
+                          size: 30),
+                      onPressed: () => Scaffold.of(context).openEndDrawer(),
                     ),
                   ),
                 ],
               ),
             ),
 
+            // page content
             Expanded(
               child: Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 60),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 60),
                 decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.surfaceContainerHighest, // background that uses a very light tone from the primary color
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(30),
-                                topRight: Radius.circular(30),
-                              ),
-                            ),
+                  color: Theme.of(context)
+                      .colorScheme
+                      .surfaceContainerHighest, // background that uses a very light tone from the primary color
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -64,8 +68,8 @@ class HomePage extends StatelessWidget {
                     Text(
                       'Vazio aqui',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
                     ),
                     // const SizedBox(height: 120),
                     const Spacer(),
@@ -73,8 +77,8 @@ class HomePage extends StatelessWidget {
                       'Que tal adicionar seu\nprimeiro lembrete?',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
                     ),
                     const SizedBox(height: 40),
                   ],
@@ -88,10 +92,14 @@ class HomePage extends StatelessWidget {
       // Floating button (FAB)
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Add reminder
+          // Navigator.pop(
+          //     context); // Ensure any open drawers are closed before navigating
+          Navigator.pushNamed(
+              context, '/addReminder'); // Navigate to the AddReminder page
         },
         backgroundColor: Theme.of(context).colorScheme.primary,
-        child: Icon(Icons.add, color: Theme.of(context).colorScheme.onPrimary, size: 30),
+        child: Icon(Icons.add,
+            color: Theme.of(context).colorScheme.onPrimary, size: 30),
       ),
     );
   }

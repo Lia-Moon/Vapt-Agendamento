@@ -51,7 +51,7 @@ class AppTheme {
       fontSize: 16.0,
     ),
 
-    // Body_black_italic_small (Figma) -> mapeado para labelSmall
+    // Body_black_italic_small (Figma) -> labelSmall
     labelSmall: base.labelSmall?.copyWith(
       fontFamily: 'Inter',
       // fontWeight: FontWeight.w900, // Black

@@ -31,7 +31,10 @@ class MenuDrawer extends StatelessWidget {
               )
             ),
             iconColor: Theme.of(context).colorScheme.onSurfaceVariant,
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/home');
+            }
           ),
           ListTile(
             leading: Icon(Icons.settings),
