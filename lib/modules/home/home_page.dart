@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vapt_agendamento/main.dart';
-import '../../shared/widgets/menu_drawer.dart';
+import 'package:vapt_agendamento/shared/widgets/menu_drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
